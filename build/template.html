@@ -1,0 +1,13 @@
+
+<div class="pagination" ng-show="totalPages &gt; 1">
+  <style type="text/css"></style>
+  <div class="page prev" ng-click="setPage(ngModel - 1)" ng-class="{disabled:ngModel&lt;2}" ng-hide="hidePrevNext">{{prevText}}</div>
+  <div class="page firstNumber" ng-click="setPage(1)" ng-show="showFirstLast">{{firstText}}</div>
+  <div class="page first" ng-click="setPage(1)" ng-show="ellipsisPre">1</div>
+  <div class="page ellipsis pre" ng-show="ellipsisPre">{{ellipsisText}}</div>
+  <div class="page number" ng-repeat="myPage in (allPages = getPages())" ng-click="setPage(myPage)" ng-class="{selected:ngModel===myPage}">{{myPage}}</div>
+  <div class="page ellipsis post" ng-show="ellipsisPost">{{ellipsisText}}</div>
+  <div class="page lastNumber" ng-click="setPage(totalPages)" ng-show="ellipsisPost">{{totalPages}}</div>
+  <div class="page last" ng-click="setPage(totalPages)" ng-show="showFirstLast">{{lastText}}</div>
+  <div class="page next" ng-click="setPage(ngModel + 1)" ng-class="{disabled:ngModel&gt;totalPages-1}" ng-hide="hidePrevNext">{{nextText}}</div>
+</div>

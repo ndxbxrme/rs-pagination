@@ -1,0 +1,11 @@
+.pagination(ng-show='totalPages > 1')
+  style(type='text/css').
+  .page.prev(ng-click='setPage(ngModel - 1)', ng-class='{disabled:ngModel<2}', ng-hide='hidePrevNext') {{prevText}}
+  .page.firstNumber(ng-click='setPage(1)', ng-show='showFirstLast') {{firstText}}
+  .page.first(ng-click='setPage(1)', ng-show='ellipsisPre') 1
+  .page.ellipsis.pre(ng-show='ellipsisPre') {{ellipsisText}}
+  .page.number(ng-repeat='myPage in (allPages = getPages())', ng-click='setPage(myPage)', ng-class='{selected:ngModel===myPage}') {{myPage}}
+  .page.ellipsis.post(ng-show='ellipsisPost') {{ellipsisText}}
+  .page.lastNumber(ng-click='setPage(totalPages)', ng-show='ellipsisPost') {{totalPages}}
+  .page.last(ng-click='setPage(totalPages)', ng-show='showFirstLast') {{lastText}}
+  .page.next(ng-click='setPage(ngModel + 1)', ng-class='{disabled:ngModel>totalPages-1}', ng-hide='hidePrevNext') {{nextText}}
